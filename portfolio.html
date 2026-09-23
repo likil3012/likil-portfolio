@@ -1,0 +1,4147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Likil Kailash Raj | Developer Portfolio</title>
+
+    <meta
+        name="description"
+        content="Portfolio of Allada Likil Kailash Raj - BCA Student, Developer and AI enthusiast."
+    >
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:"Inter",sans-serif;
+
+    background:#020203;
+
+    color:#fff;
+
+    overflow-x:hidden;
+
+    cursor:none;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    max-width:100%;
+}
+
+button,
+input,
+textarea{
+    font-family:inherit;
+}
+
+
+/* =========================================================
+   GALAXY CANVAS
+========================================================= */
+
+#galaxyCanvas{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    z-index:-5;
+
+    opacity:0;
+
+    transition:
+        opacity 2.5s ease;
+}
+
+body.intro-done #galaxyCanvas{
+    opacity:.82;
+}
+
+
+/* Dark readability overlay */
+
+.galaxy-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-4;
+
+    pointer-events:none;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            transparent 0%,
+            rgba(0,0,0,.18) 40%,
+            rgba(0,0,0,.72) 100%
+        );
+
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+#intro{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#000;
+
+    z-index:9999;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+}
+
+#intro.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+}
+
+
+#introCanvas{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+}
+
+
+.intro-logo{
+
+    position:relative;
+
+    z-index:2;
+
+    font-size:
+        clamp(100px,22vw,300px);
+
+    font-weight:800;
+
+    letter-spacing:-.08em;
+
+    color:#fff;
+
+    user-select:none;
+
+    transition:
+        transform .5s ease,
+        opacity .5s ease,
+        filter .5s ease;
+}
+
+
+.intro-logo.dissolve{
+
+    animation:
+        logoDissolve 1.4s
+        cubic-bezier(.7,0,.3,1)
+        forwards;
+}
+
+
+@keyframes logoDissolve{
+
+    0%{
+
+        opacity:1;
+
+        transform:
+            scale(1)
+            rotate(0deg);
+
+        filter:
+            blur(0)
+            brightness(1);
+    }
+
+    35%{
+
+        transform:
+            scale(1.08)
+            rotate(-1deg);
+
+        filter:
+            blur(1px)
+            brightness(1.4);
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+            scale(1.45)
+            rotate(3deg);
+
+        filter:
+            blur(15px)
+            brightness(2);
+    }
+
+}
+
+
+/* =========================================================
+   CUSTOM CURSOR
+========================================================= */
+
+.cursor-dot{
+
+    position:fixed;
+
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    pointer-events:none;
+
+    z-index:10000;
+
+    transform:
+        translate(-50%,-50%);
+
+    transition:
+        width .2s ease,
+        height .2s ease,
+        opacity .2s ease;
+}
+
+
+.cursor-ring{
+
+    position:fixed;
+
+    width:34px;
+    height:34px;
+
+    border:1px solid
+        rgba(255,255,255,.45);
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:9999;
+
+    transform:
+        translate(-50%,-50%);
+
+    transition:
+        width .25s ease,
+        height .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+}
+
+
+.cursor-ring.hover{
+
+    width:65px;
+    height:65px;
+
+    border-color:#fff;
+
+    background:
+        rgba(255,255,255,.05);
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    z-index:1000;
+
+    padding:25px 6%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.72),
+            transparent
+        );
+
+    transition:.4s;
+}
+
+
+.navbar.scrolled{
+
+    padding:15px 6%;
+
+    background:
+        rgba(2,2,3,.82);
+
+    backdrop-filter:
+        blur(15px);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.06);
+}
+
+
+.nav-container{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+
+.logo{
+
+    font-size:20px;
+
+    font-weight:700;
+
+    letter-spacing:-1px;
+}
+
+
+.logo span{
+    opacity:.45;
+}
+
+
+.nav-links{
+
+    display:flex;
+
+    gap:30px;
+
+    list-style:none;
+}
+
+
+.nav-links a{
+
+    font-size:11px;
+
+    color:#999;
+
+    transition:.3s;
+}
+
+
+.nav-links a:hover{
+
+    color:#fff;
+}
+
+
+.menu-btn{
+
+    display:none;
+
+    font-size:22px;
+
+    color:#fff;
+
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+.container{
+
+    width:88%;
+
+    max-width:1300px;
+
+    margin:auto;
+}
+
+
+.section{
+
+    position:relative;
+
+    padding:
+        130px 0;
+}
+
+
+.section-heading{
+
+    max-width:720px;
+
+    margin-bottom:70px;
+}
+
+
+.section-number{
+
+    color:#666;
+
+    font-size:11px;
+
+    letter-spacing:3px;
+
+    margin-bottom:18px;
+}
+
+
+.section-heading h2{
+
+    font-size:
+        clamp(45px,7vw,90px);
+
+    letter-spacing:-.07em;
+
+    line-height:.95;
+
+    margin-bottom:25px;
+}
+
+
+.section-heading p{
+
+    color:#777;
+
+    max-width:550px;
+
+    line-height:1.8;
+
+    font-size:14px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    position:relative;
+}
+
+
+.hero-content{
+
+    max-width:1000px;
+
+    padding-top:80px;
+}
+
+
+.hero-small{
+
+    color:#888;
+
+    font-size:12px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    margin-bottom:25px;
+}
+
+
+.hero h1{
+
+    font-size:
+        clamp(55px,10vw,150px);
+
+    line-height:.88;
+
+    letter-spacing:-.085em;
+
+    max-width:1000px;
+}
+
+
+.hero h1 span{
+
+    color:#777;
+
+    font-weight:300;
+}
+
+
+.hero-description{
+
+    max-width:620px;
+
+    margin-top:40px;
+
+    color:#888;
+
+    font-size:15px;
+
+    line-height:1.8;
+}
+
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:35px;
+
+    flex-wrap:wrap;
+}
+
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:14px 22px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    border-radius:30px;
+
+    font-size:12px;
+
+    transition:.35s;
+}
+
+
+.btn.primary{
+
+    background:#fff;
+
+    color:#000;
+}
+
+
+.btn:hover{
+
+    transform:
+        translateY(-5px);
+
+    border-color:#fff;
+}
+
+
+.btn.primary:hover{
+
+    background:#ddd;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1.4fr;
+
+    gap:100px;
+
+    align-items:start;
+}
+
+
+.about-title{
+
+    font-size:
+        clamp(35px,5vw,65px);
+
+    letter-spacing:-.06em;
+
+    line-height:1;
+}
+
+
+.about-text p{
+
+    color:#888;
+
+    font-size:14px;
+
+    line-height:1.9;
+
+    margin-bottom:20px;
+}
+
+
+.about-info{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:25px;
+
+    margin-top:35px;
+}
+
+
+.info-box{
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.12);
+
+    padding-top:15px;
+}
+
+
+.info-box small{
+
+    display:block;
+
+    color:#555;
+
+    font-size:10px;
+
+    margin-bottom:7px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+}
+
+
+.info-box span{
+
+    color:#bbb;
+
+    font-size:12px;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap:15px;
+}
+
+
+.skill{
+
+    padding:28px 20px;
+
+    min-height:190px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,.025);
+
+    border-radius:16px;
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease,
+        background .4s ease;
+}
+
+
+.skill i{
+
+    font-size:25px;
+
+    color:#ddd;
+
+    margin-bottom:25px;
+}
+
+
+.skill h3{
+
+    font-size:15px;
+
+    font-weight:600;
+
+    margin-bottom:12px;
+}
+
+
+.skill p{
+
+    color:#777;
+
+    font-size:11px;
+
+    line-height:1.7;
+}
+
+
+.skill:hover{
+
+    transform:
+        translateY(-9px);
+
+    border-color:
+        rgba(255,255,255,.25);
+
+    background:
+        rgba(255,255,255,.055);
+}
+
+
+/* =========================================================
+   TOOLS
+========================================================= */
+
+.tools-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:15px;
+}
+
+
+.tool{
+
+    padding:25px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:14px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    transition:.4s;
+}
+
+
+.tool i{
+
+    font-size:20px;
+
+    color:#bbb;
+}
+
+
+.tool span{
+
+    font-size:12px;
+
+    color:#999;
+}
+
+
+.tool:hover{
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(255,255,255,.25);
+
+    color:#fff;
+}
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.projects{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:25px;
+}
+
+
+.project{
+
+    position:relative;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    background:
+        rgba(255,255,255,.025);
+
+    transition:
+        transform .5s ease,
+        border-color .5s ease,
+        box-shadow .5s ease;
+}
+
+
+.project-image{
+
+    width:100%;
+
+    height:270px;
+
+    object-fit:cover;
+
+    display:block;
+
+    filter:
+        grayscale(40%);
+
+    opacity:.72;
+
+    transition:
+        transform .7s ease,
+        filter .5s ease,
+        opacity .5s ease;
+}
+
+
+.project:hover .project-image{
+
+    transform:
+        scale(1.07);
+
+    filter:
+        grayscale(0%);
+
+    opacity:1;
+}
+
+
+.project-content{
+
+    padding:32px;
+}
+
+
+.project-number{
+
+    color:#555;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+}
+
+
+.project h3{
+
+    margin-top:18px;
+
+    font-size:28px;
+
+    letter-spacing:-1px;
+}
+
+
+.project p{
+
+    margin-top:15px;
+
+    color:#858585;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+
+.project-tags{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin-top:25px;
+
+    padding-right:50px;
+}
+
+
+.project-tags span{
+
+    padding:7px 10px;
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    color:#aaa;
+
+    font-size:9px;
+}
+
+
+.project-link{
+
+    position:absolute;
+
+    right:25px;
+
+    bottom:25px;
+
+    width:44px;
+
+    height:44px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.35s;
+}
+
+
+.project-link:hover{
+
+    background:#fff;
+
+    color:#000;
+
+    transform:
+        rotate(45deg);
+}
+
+
+.project:hover{
+
+    transform:
+        translateY(-10px);
+
+    border-color:
+        rgba(255,255,255,.2);
+
+    box-shadow:
+        0 25px 60px
+        rgba(0,0,0,.35);
+}
+
+
+/* =========================================================
+   EDUCATION
+========================================================= */
+
+.timeline{
+
+    max-width:900px;
+
+    margin:auto;
+}
+
+
+.timeline-item{
+
+    position:relative;
+
+    padding:
+        35px 0
+        35px 35px;
+
+    border-left:
+        1px solid
+        rgba(255,255,255,.15);
+}
+
+
+.timeline-item::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-5px;
+
+    top:43px;
+
+    width:9px;
+
+    height:9px;
+
+    background:#fff;
+
+    border-radius:50%;
+}
+
+
+.timeline-year{
+
+    color:#555;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    margin-bottom:15px;
+}
+
+
+.timeline-item h3{
+
+    font-size:24px;
+
+    margin-bottom:12px;
+}
+
+
+.timeline-item p{
+
+    color:#888;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+
+.timeline-item strong{
+
+    color:#fff;
+}
+
+
+/* =========================================================
+   ACHIEVEMENTS
+========================================================= */
+
+.achievement-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+}
+
+
+.achievement{
+
+    padding:30px 24px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    transition:.4s;
+}
+
+
+.achievement-icon{
+
+    font-size:25px;
+
+    margin-bottom:25px;
+
+    color:#ccc;
+}
+
+
+.achievement-number{
+
+    color:#555;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    margin-bottom:18px;
+}
+
+
+.achievement h3{
+
+    font-size:19px;
+
+    line-height:1.3;
+
+    margin-bottom:15px;
+}
+
+
+.achievement p{
+
+    color:#777;
+
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+
+.achievement:hover{
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(255,255,255,.25);
+}
+
+
+/* =========================================================
+   CERTIFICATES
+========================================================= */
+
+.certificates{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:15px;
+}
+
+
+.certificate{
+
+    padding:28px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:15px;
+
+    display:flex;
+
+    gap:20px;
+
+    align-items:flex-start;
+
+    transition:.35s;
+}
+
+
+.certificate i{
+
+    font-size:22px;
+
+    color:#aaa;
+}
+
+
+.certificate h3{
+
+    font-size:15px;
+
+    margin-bottom:7px;
+}
+
+
+.certificate p{
+
+    color:#777;
+
+    font-size:11px;
+
+    line-height:1.6;
+}
+
+
+.certificate:hover{
+
+    transform:
+        translateX(7px);
+
+    border-color:
+        rgba(255,255,255,.25);
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        .8fr 1.2fr;
+
+    gap:100px;
+}
+
+
+.contact-title{
+
+    font-size:
+        clamp(45px,7vw,90px);
+
+    line-height:.9;
+
+    letter-spacing:-.08em;
+}
+
+
+.contact-description{
+
+    color:#777;
+
+    margin-top:30px;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+
+.socials{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:30px;
+}
+
+
+.socials a{
+
+    width:42px;
+
+    height:42px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.3s;
+}
+
+
+.socials a:hover{
+
+    background:#fff;
+
+    color:#000;
+
+    transform:
+        translateY(-5px);
+}
+
+
+.contact-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+}
+
+
+.contact-form input,
+.contact-form textarea{
+
+    width:100%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    background:
+        rgba(255,255,255,.025);
+
+    color:#fff;
+
+    padding:17px;
+
+    outline:none;
+
+    border-radius:8px;
+
+    font-size:12px;
+
+    transition:.3s;
+}
+
+
+.contact-form textarea{
+
+    min-height:170px;
+
+    resize:vertical;
+}
+
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+
+    border-color:
+        rgba(255,255,255,.4);
+}
+
+
+.submit-btn{
+
+    border:none;
+
+    background:#fff;
+
+    color:#000;
+
+    padding:16px;
+
+    border-radius:30px;
+
+    font-size:12px;
+
+    cursor:pointer;
+
+    transition:.35s;
+}
+
+
+.submit-btn:hover{
+
+    transform:
+        translateY(-4px);
+
+    background:#ddd;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.07);
+
+    padding:35px 0;
+
+    color:#555;
+
+    font-size:10px;
+}
+
+
+.footer-container{
+
+    width:88%;
+
+    max-width:1300px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:
+        translateY(45px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s ease;
+}
+
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1000px){
+
+    .skills-grid{
+
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+
+    .achievement-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+
+    .tools-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+
+@media(max-width:800px){
+
+    body{
+        cursor:auto;
+    }
+
+    .cursor-dot,
+    .cursor-ring{
+        display:none;
+    }
+
+
+    .nav-links{
+
+        position:fixed;
+
+        top:0;
+
+        right:-100%;
+
+        width:75%;
+
+        height:100vh;
+
+        background:
+            rgba(5,5,6,.97);
+
+        backdrop-filter:
+            blur(20px);
+
+        flex-direction:column;
+
+        justify-content:center;
+
+        align-items:center;
+
+        transition:.4s;
+    }
+
+
+    .nav-links.open{
+
+        right:0;
+    }
+
+
+    .nav-links a{
+
+        font-size:16px;
+    }
+
+
+    .menu-btn{
+
+        display:block;
+
+        z-index:1001;
+    }
+
+
+    .about-grid{
+
+        grid-template-columns:1fr;
+
+        gap:50px;
+    }
+
+
+    .projects{
+
+        grid-template-columns:1fr;
+    }
+
+
+    .contact-grid{
+
+        grid-template-columns:1fr;
+
+        gap:50px;
+    }
+
+
+    .certificates{
+
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .section{
+
+        padding:
+            90px 0;
+    }
+
+
+    .skills-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:10px;
+    }
+
+
+    .skill{
+
+        min-height:175px;
+
+        padding:20px 15px;
+    }
+
+
+    .tools-grid{
+
+        grid-template-columns:1fr;
+    }
+
+
+    .achievement-grid{
+
+        grid-template-columns:1fr;
+    }
+
+
+    .about-info{
+
+        grid-template-columns:1fr;
+    }
+
+
+    .hero h1{
+
+        font-size:
+            clamp(50px,17vw,90px);
+    }
+
+
+    .project-image{
+
+        height:210px;
+    }
+
+
+    .project-content{
+
+        padding:23px;
+    }
+
+
+    .project h3{
+
+        font-size:23px;
+    }
+
+
+    .footer-container{
+
+        flex-direction:column;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     INTRO
+======================================================= -->
+
+<div id="intro">
+
+    <canvas id="introCanvas"></canvas>
+
+    <div class="intro-logo" id="introLogo">
+        LKR
+    </div>
+
+</div>
+
+
+<!-- =======================================================
+     GALAXY
+======================================================= -->
+
+<canvas id="galaxyCanvas"></canvas>
+
+<div class="galaxy-overlay"></div>
+
+
+<!-- =======================================================
+     CURSOR
+======================================================= -->
+
+<div class="cursor-dot"></div>
+
+<div class="cursor-ring"></div>
+
+
+<!-- =======================================================
+     NAVBAR
+======================================================= -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a href="#home" class="logo">
+            LKR<span>.</span>
+        </a>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#tools">Tools</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#education">Education</a>
+            </li>
+
+            <li>
+                <a href="#achievements">Achievements</a>
+            </li>
+
+            <li>
+                <a href="#certificates">Certificates</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+
+        <div class="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =======================================================
+     HOME
+======================================================= -->
+
+<main>
+
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="hero-content reveal">
+
+            <div class="hero-small">
+                BCA Student · Developer · AI Enthusiast
+            </div>
+
+
+            <h1>
+                Allada Likil
+                <span>Kailash Raj.</span>
+            </h1>
+
+
+            <p class="hero-description">
+
+                I am a BCA student from Visakhapatnam,
+                passionate about software development,
+                web technologies, AI and computer vision.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#projects"
+                    class="btn primary magnetic"
+                >
+                    Explore Projects
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+
+
+                <a
+                    href="#contact"
+                    class="btn magnetic"
+                >
+                    Contact Me
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     ABOUT
+======================================================= -->
+
+<section class="section" id="about">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-number">
+                01 — ABOUT
+            </div>
+
+            <h2>
+                About Me.
+            </h2>
+
+        </div>
+
+
+        <div class="about-grid">
+
+            <div class="about-title reveal">
+
+                Building.
+                Learning.
+                Creating.
+
+            </div>
+
+
+            <div class="about-text reveal">
+
+                <p>
+
+                    I am <strong>Allada Likil Kailash Raj</strong>,
+                    a BCA student from Visakhapatnam, Andhra Pradesh,
+                    currently pursuing my undergraduate degree at
+                    Aditya Degree College.
+
+                </p>
+
+
+                <p>
+
+                    I have hands-on experience with Python, Java,
+                    Web Development, MERN Stack and AI/Computer Vision.
+                    I enjoy turning ideas into practical projects
+                    and continuously improving my technical skills.
+
+                </p>
+
+
+                <p>
+
+                    My current career interests include Full Stack
+                    Development, Software Development and AI.
+
+                </p>
+
+
+                <div class="about-info">
+
+                    <div class="info-box">
+
+                        <small>Location</small>
+
+                        <span>
+                            Visakhapatnam, Andhra Pradesh
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <small>Degree</small>
+
+                        <span>
+                            Bachelor of Computer Applications
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <small>College</small>
+
+                        <span>
+                            Aditya Degree College
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <small>Graduation</small>
+
+                        <span>
+                            2027
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     SKILLS
+======================================================= -->
+
+<section class="section" id="skills">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-number">
+                02 — SKILLS
+            </div>
+
+            <h2>
+                Skills.
+            </h2>
+
+            <p>
+                Technologies and programming skills I have been
+                learning and applying through projects.
+            </p>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+
+            <div class="skill reveal">
+
+                <i class="fa-brands fa-html5"></i>
+
+                <h3>HTML</h3>
+
+                <p>
+                    Builds the structure and semantic foundation
+                    of modern web pages.
+                </p>
+
+            </div>
+
+
+            <div class="skill reveal">
+
+                <i class="fa-brands fa-css3-alt"></i>
+
+                <h3>CSS</h3>
+
+                <p>
+                    Creates responsive layouts, styling,
+                    animations and visual interfaces.
+                </p>
+
+            </div>
+
+
+            <div class="skill reveal">
+
+                <i class="fa-brands fa-js"></i>
+
+                <h3>JavaScript</h3>
+
+                <p>
+                    Adds interaction, dynamic behaviour and
+                    logic to web applications.
+                </p>
+
+            </div>
+
+
+            <div class="skill reveal">
+
+                <i class="fa-brands fa-python"></i>
+
+                <h3>Python</h3>
+
+                <p>
+                    Used for programming, automation,
+                    AI experiments and computer vision.
+                </p>
+
+            </div>
+
+
+            <div class="skill reveal">
+
+                <i class="fa-brands fa-java"></i>
+
+                <h3>Java</h3>
+
+                <p>
+                    Used to understand OOP, application
+                    logic and backend programming.
+                </p>
+
+            </div>
+
+
+            <div class="skill reveal">
+
+                <i class="fa-solid fa-code"></i>
+
+                <h3>C</h3>
+
+                <p>
+                    Builds strong fundamentals in programming,
+                    logic and problem solving.
+                </p>
+
+            </div>
+
+
+            <div class="skill reveal">
+
+                <i class="fa-brands fa-node-js"></i>
+
+                <h3>Node.js</h3>
+
+                <p>
+                    Used for building server-side applications
+                    and backend APIs.
+                </p>
+
+            </div>
+
+
+            <div class="skill reveal">
+
+                <i class="fa-solid fa-database"></i>
+
+                <h3>MongoDB</h3>
+
+                <p>
+                    Works with flexible NoSQL data storage
+                    for modern applications.
+                </p>
+
+            </div>
+
+
+            <div class="skill reveal">
+
+                <i class="fa-solid fa-eye"></i>
+
+                <h3>OpenCV</h3>
+
+                <p>
+                    Used for real-time image processing
+                    and computer vision projects.
+                </p>
+
+            </div>
+
+
+            <div class="skill reveal">
+
+                <i class="fa-solid fa-hand"></i>
+
+                <h3>MediaPipe</h3>
+
+                <p>
+                    Helps track hands and gestures for
+                    interactive AI applications.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     TOOLS
+======================================================= -->
+
+<section class="section" id="tools">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-number">
+                03 — TOOLS
+            </div>
+
+            <h2>
+                Tools I Use.
+            </h2>
+
+            <p>
+                Development tools and platforms I use while
+                building, testing and publishing projects.
+            </p>
+
+        </div>
+
+
+        <div class="tools-grid">
+
+
+            <div class="tool reveal">
+
+                <i class="fa-brands fa-github"></i>
+
+                <span>GitHub</span>
+
+            </div>
+
+
+            <div class="tool reveal">
+
+                <i class="fa-brands fa-git-alt"></i>
+
+                <span>Git</span>
+
+            </div>
+
+
+            <div class="tool reveal">
+
+                <i class="fa-solid fa-code"></i>
+
+                <span>VS Code</span>
+
+            </div>
+
+
+            <div class="tool reveal">
+
+                <i class="fa-solid fa-database"></i>
+
+                <span>MySQL</span>
+
+            </div>
+
+
+            <div class="tool reveal">
+
+                <i class="fa-solid fa-robot"></i>
+
+                <span>OpenAI</span>
+
+            </div>
+
+
+            <div class="tool reveal">
+
+                <i class="fa-solid fa-globe"></i>
+
+                <span>Browser DevTools</span>
+
+            </div>
+
+
+            <div class="tool reveal">
+
+                <i class="fa-solid fa-mobile-screen"></i>
+
+                <span>Responsive Design</span>
+
+            </div>
+
+
+            <div class="tool reveal">
+
+                <i class="fa-solid fa-palette"></i>
+
+                <span>UI / UX</span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     PROJECTS
+======================================================= -->
+
+<section class="section" id="projects">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-number">
+                04 — PROJECTS
+            </div>
+
+            <h2>
+                Selected Work.
+            </h2>
+
+            <p>
+                A collection of projects through which I explore
+                programming, web development, AI and software concepts.
+            </p>
+
+        </div>
+
+
+        <div class="projects">
+
+
+            <!-- AIR WRITING -->
+
+            <div class="project reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85"
+                    alt="Computer vision technology"
+                    class="project-image"
+                >
+
+
+                <div class="project-content">
+
+                    <div class="project-number">
+                        PROJECT / 01
+                    </div>
+
+
+                    <h3>
+                        Air Writing AI Studio
+                    </h3>
+
+
+                    <p>
+
+                        A computer-vision based application that
+                        allows users to write letters and words
+                        in the air using hand gestures captured
+                        through a webcam.
+
+                    </p>
+
+
+                    <p>
+
+                        The project uses hand tracking to detect
+                        finger movement and create an interactive
+                        air-writing experience. Gesture controls
+                        can be used for writing, erasing, clearing
+                        and controlling the interface.
+
+                    </p>
+
+
+                    <div class="project-tags">
+
+                        <span>Python</span>
+                        <span>OpenCV</span>
+                        <span>MediaPipe</span>
+                        <span>NumPy</span>
+                        <span>AI</span>
+
+                    </div>
+
+
+                    <a
+                        href="https://github.com/likil3012"
+                        target="_blank"
+                        class="project-link"
+                    >
+
+                        <i class="fa-brands fa-github"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- MOVIE CHECKER -->
+
+            <div class="project reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=85"
+                    alt="Movie theatre"
+                    class="project-image"
+                >
+
+
+                <div class="project-content">
+
+                    <div class="project-number">
+                        PROJECT / 02
+                    </div>
+
+
+                    <h3>
+                        Movie Checker
+                    </h3>
+
+
+                    <p>
+
+                        A Python-based movie information project
+                        designed to make searching and checking
+                        movie details simple and interactive.
+
+                    </p>
+
+
+                    <p>
+
+                        The project focuses on Python programming,
+                        user input, conditional logic and displaying
+                        useful movie-related information through
+                        a simple application workflow.
+
+                    </p>
+
+
+                    <div class="project-tags">
+
+                        <span>Python</span>
+                        <span>API</span>
+                        <span>Logic</span>
+                        <span>UI</span>
+
+                    </div>
+
+
+                    <a
+                        href="https://github.com/likil3012"
+                        target="_blank"
+                        class="project-link"
+                    >
+
+                        <i class="fa-brands fa-github"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PORTFOLIO -->
+
+            <div class="project reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85"
+                    alt="Web development workspace"
+                    class="project-image"
+                >
+
+
+                <div class="project-content">
+
+                    <div class="project-number">
+                        PROJECT / 03
+                    </div>
+
+
+                    <h3>
+                        Portfolio Web Project
+                    </h3>
+
+
+                    <p>
+
+                        A personal developer portfolio designed
+                        to showcase my skills, projects, education,
+                        certifications and achievements.
+
+                    </p>
+
+
+                    <p>
+
+                        The website focuses on responsive design,
+                        smooth animations, interactive elements,
+                        cinematic transitions and a modern
+                        developer experience.
+
+                    </p>
+
+
+                    <div class="project-tags">
+
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>Responsive UI</span>
+
+                    </div>
+
+
+                    <a
+                        href="https://github.com/likil3012"
+                        target="_blank"
+                        class="project-link"
+                    >
+
+                        <i class="fa-brands fa-github"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- DIGIWALLET -->
+
+            <div class="project reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=85"
+                    alt="Digital payment"
+                    class="project-image"
+                >
+
+
+                <div class="project-content">
+
+                    <div class="project-number">
+                        PROJECT / 04
+                    </div>
+
+
+                    <h3>
+                        DigiWallet
+                    </h3>
+
+
+                    <p>
+
+                        A digital wallet application concept focused
+                        on managing digital money, user balances
+                        and transaction-related operations.
+
+                    </p>
+
+
+                    <p>
+
+                        The project demonstrates how a digital
+                        wallet interface can organize user
+                        information and provide a simple experience
+                        for common financial operations.
+
+                    </p>
+
+
+                    <div class="project-tags">
+
+                        <span>Web</span>
+                        <span>JavaScript</span>
+                        <span>Database</span>
+                        <span>UI</span>
+
+                    </div>
+
+
+                    <a
+                        href="https://github.com/likil3012"
+                        target="_blank"
+                        class="project-link"
+                    >
+
+                        <i class="fa-brands fa-github"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ONLINE BANKING -->
+
+            <div class="project reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=85"
+                    alt="Financial dashboard"
+                    class="project-image"
+                >
+
+
+                <div class="project-content">
+
+                    <div class="project-number">
+                        PROJECT / 05
+                    </div>
+
+
+                    <h3>
+                        Online Banking System
+                    </h3>
+
+
+                    <p>
+
+                        An online banking system concept designed
+                        around basic banking operations such as
+                        account management, transactions and
+                        user information.
+
+                    </p>
+
+
+                    <p>
+
+                        The project focuses on programming logic,
+                        object-oriented concepts, data handling
+                        and understanding how banking workflows
+                        can be represented inside software.
+
+                    </p>
+
+
+                    <div class="project-tags">
+
+                        <span>Java</span>
+                        <span>OOP</span>
+                        <span>Database</span>
+                        <span>Logic</span>
+
+                    </div>
+
+
+                    <a
+                        href="https://github.com/likil3012"
+                        target="_blank"
+                        class="project-link"
+                    >
+
+                        <i class="fa-brands fa-github"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     EDUCATION
+======================================================= -->
+
+<section class="section" id="education">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-number">
+                05 — EDUCATION
+            </div>
+
+            <h2>
+                Education.
+            </h2>
+
+            <p>
+                My academic journey from school to undergraduate studies.
+            </p>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-year">
+                    2024 — 2027
+                </div>
+
+                <h3>
+                    Bachelor of Computer Applications
+                </h3>
+
+                <p>
+                    Aditya Degree College, Visakhapatnam
+                </p>
+
+                <p>
+                    4th Semester CGPA:
+                    <strong>8.86</strong>
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-year">
+                    INTERMEDIATE
+                </div>
+
+                <h3>
+                    Intermediate
+                </h3>
+
+                <p>
+                    Sir Vishwa Jr College
+                </p>
+
+                <p>
+                    Marks:
+                    <strong>791 / 1000</strong>
+                </p>
+
+                <p>
+                    Percentage:
+                    <strong>79.10%</strong>
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-year">
+                    CLASS 10
+                </div>
+
+                <h3>
+                    Secondary School Education
+                </h3>
+
+                <p>
+                    Sri Chaitanya Techno School,
+                    Visakhapatnam
+                </p>
+
+                <p>
+                    Marks:
+                    <strong>472 / 600</strong>
+                </p>
+
+                <p>
+                    Percentage:
+                    <strong>78.67%</strong>
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     ACHIEVEMENTS
+======================================================= -->
+
+<section class="section" id="achievements">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-number">
+                06 — EXTRA CURRICULAR
+            </div>
+
+            <h2>
+                Beyond Coding.
+            </h2>
+
+            <p>
+                Sports and martial arts are an important part
+                of my journey outside technology.
+            </p>
+
+        </div>
+
+
+        <div class="achievement-grid">
+
+
+            <div class="achievement reveal">
+
+                <div class="achievement-number">
+                    01
+                </div>
+
+                <div class="achievement-icon">
+                    <i class="fa-solid fa-medal"></i>
+                </div>
+
+                <h3>
+                    National Pencak Silat Player
+                </h3>
+
+                <p>
+                    National-level Pencak Silat player with
+                    experience competing at a high level.
+                </p>
+
+            </div>
+
+
+            <div class="achievement reveal">
+
+                <div class="achievement-number">
+                    02
+                </div>
+
+                <div class="achievement-icon">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+
+                <h3>
+                    State Medalist
+                </h3>
+
+                <p>
+                    Medalist at the State level in
+                    Pencak Silat competitions.
+                </p>
+
+            </div>
+
+
+            <div class="achievement reveal">
+
+                <div class="achievement-number">
+                    03
+                </div>
+
+                <div class="achievement-icon">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+
+                <h3>
+                    South Zonal Medalist
+                </h3>
+
+                <p>
+                    Medalist at the South Zonal level
+                    in Pencak Silat.
+                </p>
+
+            </div>
+
+
+            <div class="achievement reveal">
+
+                <div class="achievement-number">
+                    04
+                </div>
+
+                <div class="achievement-icon">
+                    <i class="fa-solid fa-hand-fist"></i>
+                </div>
+
+                <h3>
+                    Jeet Kune Do Black Belt
+                </h3>
+
+                <p>
+                    Kung Fu — Jeet Kune Do
+                    Black Belt Holder.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     CERTIFICATES
+======================================================= -->
+
+<section class="section" id="certificates">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-number">
+                07 — CERTIFICATES
+            </div>
+
+            <h2>
+                Certifications.
+            </h2>
+
+        </div>
+
+
+        <div class="certificates">
+
+
+            <div class="certificate reveal">
+
+                <i class="fa-solid fa-certificate"></i>
+
+                <div>
+
+                    <h3>
+                        C Essentials 1
+                    </h3>
+
+                    <p>
+                        Cisco Networking Academy
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="certificate reveal">
+
+                <i class="fa-solid fa-certificate"></i>
+
+                <div>
+
+                    <h3>
+                        C Essentials 2
+                    </h3>
+
+                    <p>
+                        Cisco Networking Academy
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="certificate reveal">
+
+                <i class="fa-brands fa-python"></i>
+
+                <div>
+
+                    <h3>
+                        Python Essentials 1
+                    </h3>
+
+                    <p>
+                        Cisco Networking Academy
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="certificate reveal">
+
+                <i class="fa-solid fa-lightbulb"></i>
+
+                <div>
+
+                    <h3>
+                        Startup Business Management Programme
+                    </h3>
+
+                    <p>
+                        Andhra Pradesh Innovation Society
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="certificate reveal">
+
+                <i class="fa-solid fa-code"></i>
+
+                <div>
+
+                    <h3>
+                        Certificate of Appreciation
+                    </h3>
+
+                    <p>
+                        Adhoc Aditya Tech Fusion Hackathon —
+                        Web Development
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     CONTACT
+======================================================= -->
+
+<section class="section" id="contact">
+
+    <div class="container">
+
+        <div class="contact-grid">
+
+
+            <div class="reveal">
+
+                <div class="section-number">
+                    08 — CONTACT
+                </div>
+
+
+                <h2 class="contact-title">
+                    Let's<br>
+                    Talk.
+                </h2>
+
+
+                <p class="contact-description">
+
+                    Have an idea, project or opportunity?
+                    Feel free to get in touch with me.
+
+                </p>
+
+
+                <div class="socials">
+
+                    <a
+                        href="https://github.com/likil3012"
+                        target="_blank"
+                        aria-label="GitHub"
+                    >
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+
+
+                    <a
+                        href="https://www.linkedin.com/in/likil-kailash/"
+                        target="_blank"
+                        aria-label="LinkedIn"
+                    >
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+
+
+                    <a
+                        href="https://www.instagram.com/mr_likil___007/"
+                        target="_blank"
+                        aria-label="Instagram"
+                    >
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+
+                    <a
+                        href="mailto:likhilkailash7@gmail.com"
+                        aria-label="Email"
+                    >
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <form
+                class="contact-form reveal"
+                id="contactForm"
+            >
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    required
+                >
+
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    required
+                >
+
+
+                <textarea
+                    name="message"
+                    placeholder="Your Message"
+                    required
+                ></textarea>
+
+
+                <button
+                    type="submit"
+                    class="submit-btn magnetic"
+                >
+                    Send Message
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer>
+
+    <div class="footer-container">
+
+        <span>
+            © 2026 Allada Likil Kailash Raj
+        </span>
+
+        <span>
+            Built with code & curiosity.
+        </span>
+
+    </div>
+
+</footer>
+
+
+
+<script>
+
+/* =========================================================
+   INTRO PARTICLE DISSOLVE
+========================================================= */
+
+const intro =
+    document.getElementById("intro");
+
+const introLogo =
+    document.getElementById("introLogo");
+
+const introCanvas =
+    document.getElementById("introCanvas");
+
+const ictx =
+    introCanvas.getContext("2d");
+
+
+let iw =
+    window.innerWidth;
+
+let ih =
+    window.innerHeight;
+
+
+introCanvas.width = iw;
+introCanvas.height = ih;
+
+
+let introParticles = [];
+
+
+function createIntroParticles(){
+
+    introParticles = [];
+
+    const count =
+        window.innerWidth < 700
+            ? 350
+            : 800;
+
+
+    for(let i=0;i<count;i++){
+
+        introParticles.push({
+
+            x:
+                iw / 2 +
+                (Math.random()-.5)*220,
+
+            y:
+                ih / 2 +
+                (Math.random()-.5)*120,
+
+            vx:
+                (Math.random()-.5)*2,
+
+            vy:
+                (Math.random()-.5)*2,
+
+            size:
+                Math.random()*2+.4,
+
+            alpha:1
+
+        });
+
+    }
+
+}
+
+
+createIntroParticles();
+
+
+function animateIntroParticles(){
+
+    ictx.clearRect(
+        0,
+        0,
+        iw,
+        ih
+    );
+
+
+    introParticles.forEach(p => {
+
+        p.x += p.vx;
+
+        p.y += p.vy;
+
+        p.alpha *= .992;
+
+
+        ictx.beginPath();
+
+        ictx.arc(
+            p.x,
+            p.y,
+            p.size,
+            0,
+            Math.PI*2
+        );
+
+
+        ictx.fillStyle =
+            `rgba(255,255,255,${p.alpha})`;
+
+        ictx.fill();
+
+    });
+
+
+    requestAnimationFrame(
+        animateIntroParticles
+    );
+
+}
+
+
+animateIntroParticles();
+
+
+/* Intro timing */
+
+setTimeout(() => {
+
+    introLogo.classList.add("dissolve");
+
+},2200);
+
+
+setTimeout(() => {
+
+    introParticles.forEach(p => {
+
+        p.vx +=
+            (Math.random()-.5)*7;
+
+        p.vy +=
+            (Math.random()-.5)*7;
+
+    });
+
+},2500);
+
+
+setTimeout(() => {
+
+    intro.classList.add("hide");
+
+    document.body.classList.add(
+        "intro-done"
+    );
+
+},3500);
+
+
+
+/* =========================================================
+   GALAXY
+========================================================= */
+
+const galaxyCanvas =
+    document.getElementById(
+        "galaxyCanvas"
+    );
+
+const gctx =
+    galaxyCanvas.getContext("2d");
+
+
+let gw = window.innerWidth;
+
+let gh = window.innerHeight;
+
+
+function resizeGalaxy(){
+
+    gw =
+        window.innerWidth;
+
+    gh =
+        window.innerHeight;
+
+
+    const dpr =
+        Math.min(
+            window.devicePixelRatio || 1,
+            1.5
+        );
+
+
+    galaxyCanvas.width =
+        gw * dpr;
+
+    galaxyCanvas.height =
+        gh * dpr;
+
+
+    galaxyCanvas.style.width =
+        gw + "px";
+
+    galaxyCanvas.style.height =
+        gh + "px";
+
+
+    gctx.setTransform(
+        dpr,
+        0,
+        0,
+        dpr,
+        0,
+        0
+    );
+
+}
+
+
+resizeGalaxy();
+
+
+window.addEventListener(
+    "resize",
+    resizeGalaxy
+);
+
+
+/* Galaxy stars */
+
+let galaxyStars = [];
+
+let foregroundStars = [];
+
+
+function createGalaxy(){
+
+    galaxyStars = [];
+
+    foregroundStars = [];
+
+
+    const isMobile =
+        window.innerWidth < 700;
+
+
+    const count =
+        isMobile
+            ? 900
+            : 1900;
+
+
+    for(let i=0;i<count;i++){
+
+        const radius =
+            Math.sqrt(
+                Math.random()
+            );
+
+
+        const arm =
+            Math.floor(
+                Math.random()*4
+            );
+
+
+        const armAngle =
+            arm *
+            Math.PI/2;
+
+
+        const twist =
+            radius *
+            4.5;
+
+
+        const spread =
+            (Math.random()-.5)
+            *
+            .65
+            *
+            (0.3 + radius);
+
+
+        const angle =
+            armAngle +
+            twist +
+            spread;
+
+
+        galaxyStars.push({
+
+            radius,
+
+            angle,
+
+            size:
+                Math.random()*
+                (radius < .2 ? 1.5 : 1)
+                + .25,
+
+            alpha:
+                Math.random()*
+                .55+.12,
+
+            depth:
+                Math.random()*.8+.2
+
+        });
+
+    }
+
+
+    const foregroundCount =
+        isMobile
+            ? 100
+            : 260;
+
+
+    for(let i=0;i<foregroundCount;i++){
+
+        foregroundStars.push({
+
+            x:Math.random(),
+
+            y:Math.random(),
+
+            size:
+                Math.random()*1.4+.2,
+
+            alpha:
+                Math.random()*.7+.15,
+
+            twinkle:
+                Math.random()*.02
+
+        });
+
+    }
+
+}
+
+
+createGalaxy();
+
+
+let galaxyMouseX = 0;
+
+let galaxyMouseY = 0;
+
+let galaxyTargetX = 0;
+
+let galaxyTargetY = 0;
+
+let galaxyRotation = 0;
+
+
+window.addEventListener(
+    "mousemove",
+    e => {
+
+        galaxyTargetX =
+            e.clientX /
+            window.innerWidth
+            - .5;
+
+
+        galaxyTargetY =
+            e.clientY /
+            window.innerHeight
+            - .5;
+
+    }
+);
+
+
+function drawGalaxy(){
+
+    gctx.clearRect(
+        0,
+        0,
+        gw,
+        gh
+    );
+
+
+    /* Smooth mouse response */
+
+    galaxyMouseX +=
+        (
+            galaxyTargetX -
+            galaxyMouseX
+        ) * .035;
+
+
+    galaxyMouseY +=
+        (
+            galaxyTargetY -
+            galaxyMouseY
+        ) * .035;
+
+
+    /* Slow galaxy rotation */
+
+    galaxyRotation += .00035;
+
+
+    const cx =
+        gw*.53 +
+        galaxyMouseX*120;
+
+
+    const cy =
+        gh*.50 +
+        galaxyMouseY*70;
+
+
+    /* Core glow */
+
+    const core =
+        gctx.createRadialGradient(
+            cx,
+            cy,
+            0,
+            cx,
+            cy,
+            Math.min(gw,gh)*.30
+        );
+
+
+    core.addColorStop(
+        0,
+        "rgba(255,255,255,.16)"
+    );
+
+
+    core.addColorStop(
+        .18,
+        "rgba(190,150,255,.08)"
+    );
+
+
+    core.addColorStop(
+        .5,
+        "rgba(100,70,180,.025)"
+    );
+
+
+    core.addColorStop(
+        1,
+        "rgba(0,0,0,0)"
+    );
+
+
+    gctx.fillStyle =
+        core;
+
+
+    gctx.fillRect(
+        0,
+        0,
+        gw,
+        gh
+    );
+
+
+    /* Galaxy */
+
+    gctx.save();
+
+
+    gctx.translate(
+        cx,
+        cy
+    );
+
+
+    gctx.rotate(
+        galaxyRotation +
+        galaxyMouseX*.12
+    );
+
+
+    gctx.globalCompositeOperation =
+        "lighter";
+
+
+    galaxyStars.forEach(star => {
+
+        const angle =
+            star.angle +
+            galaxyRotation *
+            (1.8-star.radius);
+
+
+        const galaxyWidth =
+            gw*.43;
+
+
+        let px =
+            Math.cos(angle) *
+            star.radius *
+            galaxyWidth;
+
+
+        let py =
+            Math.sin(angle) *
+            star.radius *
+            galaxyWidth *
+            .35;
+
+
+        /* Cursor parallax */
+
+        px +=
+            galaxyMouseX *
+            star.depth *
+            80 *
+            (1-star.radius);
+
+
+        py +=
+            galaxyMouseY *
+            star.depth *
+            45 *
+            (1-star.radius);
+
+
+        let alpha =
+            star.alpha *
+            (1-star.radius*.35);
+
+
+        /* Dust lanes */
+
+        const dust =
+            Math.sin(
+                angle*3 +
+                star.radius*18
+            );
+
+
+        if(dust>.55){
+
+            alpha*=.30;
+
+        }
+
+
+        gctx.beginPath();
+
+
+        gctx.arc(
+            px,
+            py,
+            star.size,
+            0,
+            Math.PI*2
+        );
+
+
+        gctx.fillStyle =
+            `rgba(225,220,255,${alpha})`;
+
+
+        gctx.fill();
+
+    });
+
+
+    gctx.restore();
+
+
+    /* Foreground stars */
+
+    gctx.globalCompositeOperation =
+        "source-over";
+
+
+    foregroundStars.forEach(star => {
+
+        star.alpha +=
+            (
+                Math.random()-.5
+            ) *
+            star.twinkle;
+
+
+        const alpha =
+            Math.max(
+                .05,
+                Math.min(
+                    .9,
+                    star.alpha
+                )
+            );
+
+
+        const x =
+            star.x*gw +
+            galaxyMouseX*25;
+
+
+        const y =
+            star.y*gh +
+            galaxyMouseY*15;
+
+
+        gctx.beginPath();
+
+
+        gctx.arc(
+            x,
+            y,
+            star.size,
+            0,
+            Math.PI*2
+        );
+
+
+        gctx.fillStyle =
+            `rgba(255,255,255,${alpha})`;
+
+
+        gctx.fill();
+
+    });
+
+
+    requestAnimationFrame(
+        drawGalaxy
+    );
+
+}
+
+
+drawGalaxy();
+
+
+
+/* =========================================================
+   CUSTOM CURSOR
+========================================================= */
+
+const cursorDot =
+    document.querySelector(
+        ".cursor-dot"
+    );
+
+
+const cursorRing =
+    document.querySelector(
+        ".cursor-ring"
+    );
+
+
+let cursorX = 0;
+
+let cursorY = 0;
+
+let ringX = 0;
+
+let ringY = 0;
+
+
+window.addEventListener(
+    "mousemove",
+    e => {
+
+        cursorX =
+            e.clientX;
+
+        cursorY =
+            e.clientY;
+
+
+        cursorDot.style.left =
+            cursorX+"px";
+
+        cursorDot.style.top =
+            cursorY+"px";
+
+    }
+);
+
+
+function animateCursor(){
+
+    ringX +=
+        (cursorX-ringX)*.16;
+
+
+    ringY +=
+        (cursorY-ringY)*.16;
+
+
+    cursorRing.style.left =
+        ringX+"px";
+
+
+    cursorRing.style.top =
+        ringY+"px";
+
+
+    requestAnimationFrame(
+        animateCursor
+    );
+
+}
+
+
+animateCursor();
+
+
+/* Cursor hover */
+
+document
+.querySelectorAll(
+    "a, button, .skill, .tool, .project, .achievement, .certificate"
+)
+.forEach(element => {
+
+    element.addEventListener(
+        "mouseenter",
+        () => {
+
+            cursorRing.classList.add(
+                "hover"
+            );
+
+        }
+    );
+
+
+    element.addEventListener(
+        "mouseleave",
+        () => {
+
+            cursorRing.classList.remove(
+                "hover"
+            );
+
+        }
+    );
+
+});
+
+
+
+/* =========================================================
+   NAVBAR SCROLL
+========================================================= */
+
+const navbar =
+    document.querySelector(
+        ".navbar"
+    );
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if(window.scrollY>50){
+
+            navbar.classList.add(
+                "scrolled"
+            );
+
+        }else{
+
+            navbar.classList.remove(
+                "scrolled"
+            );
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuBtn =
+    document.querySelector(
+        ".menu-btn"
+    );
+
+
+const navLinks =
+    document.querySelector(
+        ".nav-links"
+    );
+
+
+menuBtn.addEventListener(
+    "click",
+    () => {
+
+        navLinks.classList.toggle(
+            "open"
+        );
+
+    }
+);
+
+
+document
+.querySelectorAll(
+    ".nav-links a"
+)
+.forEach(link => {
+
+    link.addEventListener(
+        "click",
+        () => {
+
+            navLinks.classList.remove(
+                "open"
+            );
+
+        }
+    );
+
+});
+
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(
+        ".reveal"
+    );
+
+
+const revealObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if(
+                        entry.isIntersecting
+                    ){
+
+                        entry.target
+                            .classList
+                            .add("active");
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold:.12
+        }
+    );
+
+
+revealElements.forEach(
+    element => {
+
+        revealObserver.observe(
+            element
+        );
+
+    }
+);
+
+
+
+/* =========================================================
+   MAGNETIC BUTTONS
+========================================================= */
+
+document
+.querySelectorAll(
+    ".magnetic"
+)
+.forEach(button => {
+
+    button.addEventListener(
+        "mousemove",
+        e => {
+
+            const rect =
+                button.getBoundingClientRect();
+
+
+            const x =
+                e.clientX -
+                rect.left -
+                rect.width/2;
+
+
+            const y =
+                e.clientY -
+                rect.top -
+                rect.height/2;
+
+
+            button.style.transform =
+                `translate(${x*.15}px,${y*.15}px)`;
+
+        }
+    );
+
+
+    button.addEventListener(
+        "mouseleave",
+        () => {
+
+            button.style.transform =
+                "";
+
+        }
+    );
+
+});
+
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+const contactForm =
+    document.getElementById(
+        "contactForm"
+    );
+
+
+contactForm.addEventListener(
+    "submit",
+    e => {
+
+        e.preventDefault();
+
+
+        const name =
+            contactForm.name.value;
+
+
+        const email =
+            contactForm.email.value;
+
+
+        const message =
+            contactForm.message.value;
+
+
+        const subject =
+            encodeURIComponent(
+                "Portfolio Contact - " +
+                name
+            );
+
+
+        const body =
+            encodeURIComponent(
+
+                "Name: " +
+                name +
+
+                "\nEmail: " +
+                email +
+
+                "\n\nMessage:\n" +
+                message
+
+            );
+
+
+        window.location.href =
+            `mailto:likhilkailash7@gmail.com?subject=${subject}&body=${body}`;
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
